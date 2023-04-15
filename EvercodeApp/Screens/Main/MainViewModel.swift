@@ -19,5 +19,9 @@ class MainViewModel {
     func fetchItems() {
         
         // TODO
+        service.fetchData { result in
+            guard let result = result else { return }
+            delegate?.didFetchItems(items: result)
+        }
     }
 }
